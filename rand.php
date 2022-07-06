@@ -7,5 +7,4 @@ $valor = rand(1,5);
     }else{
         echo "El numero $valor es par";
     }
-
 ?>
