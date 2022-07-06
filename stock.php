@@ -2,16 +2,15 @@
 
 $stock = 800;
 
-    if($stock > 0){
-        echo "Hay stock";
-    }else{
-        echo "No hay stock";
-    }
+        if($stock > 0){
+            echo "Hay stock";
+        }else{
+            echo "No hay stock";
+        }
 
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
