@@ -60,7 +60,7 @@ $aProductos[] = array("nombre" => "Aire Acondicionado Split Inverter Frío/Calor
                             <td><?php echo $aProductos[0]["modelo"] ?></td>
                             <td><?php echo $aProductos[0]["stock"] == 0? "No hay stock":($aProductos[0]["stock"]> 10?"Hay stock":"Poco stock"); ?></td>
                             <td><?php echo $aProductos[0]["precio"] ?></td>
-                            <td><button class="btn bg-primary text-white text-center">Comprar</button></td>
+                            <td><button class="btn bg-primary text-white">Comprar</button></td>
                         </tr>
                         <tr>
                             <td><?php echo $aProductos[1]["nombre"] ?></td>
@@ -68,7 +68,7 @@ $aProductos[] = array("nombre" => "Aire Acondicionado Split Inverter Frío/Calor
                             <td><?php echo $aProductos[1]["modelo"] ?></td>
                             <td><?php echo $aProductos[1]["stock"] == 0? "No hay stock":($aProductos[1]["stock"]> 10?"Hay stock":"Poco stock"); ?></td>
                             <td><?php echo $aProductos[1]["precio"] ?></td>
-                            <td><button class="btn bg-primary text-white text-center">Comprar</button></td>
+                            <td><button class="btn bg-primary text-white">Comprar</button></td>
                         </tr>
                         <tr>
                             <td><?php echo $aProductos[2]["nombre"] ?></td>
@@ -76,7 +76,7 @@ $aProductos[] = array("nombre" => "Aire Acondicionado Split Inverter Frío/Calor
                             <td><?php echo $aProductos[2]["modelo"] ?></td>
                             <td><?php echo $aProductos[2]["stock"] == 0? "No hay stock":($aProductos[2]["stock"]> 10?"Hay stock":"Poco stock"); ?></td>
                             <td><?php echo $aProductos[2]["precio"] ?></td>
-                            <td><button class="btn bg-primary text-white text-center">Comprar</button></td>
+                            <td><button class="btn bg-primary text-white">Comprar</button></td>
                         </tr>
                         </tbody>
                     </table>
