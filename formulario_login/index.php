@@ -10,8 +10,8 @@ if($_POST){
     $clave = $_POST["txtClave"];
 
 
-    if($usuario == "marksmix"  && $clave == "marksmix22"){
-        header("location: acceso-confirmado.php");
+    if($usuario != ""  && $clave != ""){
+        header("Location: acceso-confirmado.php");
     }else{
         $mensaje = "usuario o contraseña incorrectos";
     }
