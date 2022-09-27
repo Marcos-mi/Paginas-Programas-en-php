@@ -12,11 +12,6 @@ class Cliente
     private $fk_idlocalidad;
     private $domicilio;
 
-    public function __construct()
-    {
-
-    }
-
     public function __get($atributo)
     {
         return $this->$atributo;
