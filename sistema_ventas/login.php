@@ -10,7 +10,7 @@ if($_POST){
   $clave = trim($_REQUEST["txtClave"]);
 
   //Si el usuario es admin y la clave es admin123
-    if($usuario == "marcosmi" && $clave == "marcosmi123"){
+    if($usuario == "Marcosmi" && $clave == "marcosmi123"){
       //Crear una variable de session con tu nombre
       $_SESSION["nombre"] = "marcos";
       //Redireccionar a index.php
