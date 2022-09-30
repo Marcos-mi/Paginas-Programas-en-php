@@ -29,12 +29,19 @@ include_once("header.php");
           <button type="submit" class="btn btn-danger" id="btnBorrar" name="btnBorrar">Borrar</button>
       </div>
   </div>
-  <div class="row">
-      <div class="col-2">
-          <label for="">Fecha y hora:</label>
-          <input type="date" name="txtDate" id="txtDate" class="form-control">
-      </div>
-  </div>
+
+    <label for="txtFechaNac" class="d-block">Fecha y hora</label>
+    <select name="txtDia" id="txtDia" class="d-inline form-control" style="width: 80px">
+        <option value="" selected="" disabled="">DD</option>
+    </select>
+    <select name="txtMes" id="txtMes" class="d-inline form-control" style="width: 80px">
+        <option value="" selected="" disabled="">MM</option>
+    </select>
+    <select name="txtAnio" id="txtAnio"  class="d-inline form-control" style="width: 80px">
+        <option value="" selected="" disabled="">YYYY</option>
+    </select>
+    <input type="time" name="" id="" required="" class="form-control d-inline" style="width: 120px">
+
   <div class="row">
       <div class="col-6 form-group">
           <label for="txtCliente">Cliente</label>
