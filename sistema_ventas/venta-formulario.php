@@ -11,7 +11,7 @@ include_once("header.php");
   <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">Productos</h1>
+<h1 class="h3 mb-4 text-gray-800">Venta</h1>
 <?php if(isset($msg)): ?>
   <div class="row">
       <div class="col-12">
@@ -30,29 +30,38 @@ include_once("header.php");
       </div>
   </div>
   <div class="row">
+      <div class="col-2">
+          <label for="">Fecha y hora:</label>
+          <input type="date" name="txtDate" id="txtDate" class="form-control">
+      </div>
+  </div>
+  <div class="row">
       <div class="col-6 form-group">
-          <label for="txtNombre">Nombre:</label>
-          <input type="text" required class="form-control" name="txtNombre" id="txtNombre" value="">
+          <label for="txtCliente">Cliente</label>
+          <select name="lstCliente" id="lstCliente" class="form-control selectpicker" data-live-search="true" required>
+              <option value="" disabled selected>Seleccionar</option>
+          </select>
       </div>
       <div class="col-6 form-group">
-                    <label for="txtTipoProducto">Tipo de producto:</label>
-                    <select name="lstTipoProducto" id="lstTipoProducto" class="form-control selectpicker" data-live-search="true" required>
-                        <option value="" disabled selected>Seleccionar</option>
-                    </select>
-        </div>
+          <label for="txtProducto">Producto</label>
+          <select name="lstProducto" id="lstProducto" class="form-control selectpicker" data-live-search="true" required>
+              <option value="" disabled selected>Seleccionar</option>
+          </select>
+      </div>
+        <div class="col-6 form-group">
+          <label for="txtPrecioUnitario">Precio unitario</label>
+          <input type="number" placeholder="0" required class="form-control" name="txtPrecioUnitario" id="txtPrecioUnitario" value="">
+      </div>
         <div class="col-6 form-group">
           <label for="txtCantidad">Cantidad</label>
-          <input type="number" required class="form-control" name="txtCantidad" id="txtCantidad" value="">
+          <input type="number" placeholder="0" required class="form-control" name="txtCantidad" id="txtCantidad" value="">
       </div>
         <div class="col-6 form-group">
-          <label for="txtPrecio">Precio</label>
-          <input type="number" placeholder="0" required class="form-control" name="txtPrecio" id="txtPrecio" value="">
+          <label for="txtTotal">Total</label>
+          <input type="number" placeholder="0" required class="form-control" name="txtTotal" id="txtTotal" value="">
       </div>
     </div>
-    <div col-12>
-        <label for="">Descripcion</label>
-        <textarea name="textDescripcion" id="txtDescripcion" cols="30" rows="10"></textarea>
-    </div>
+   
 
 
 
