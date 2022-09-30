@@ -1,12 +1,17 @@
 <?php
 include_once "config.php";
-
+include_once "entidades/tipo_producto.php";
 include_once("header.php"); 
 
 
 
+$tipoProducto = new tipoProducto();
+$aTipoProductos = $tipoProducto ->  obtenerTodos();
+
+
 
 ?>
+
   <!-- Begin Page Content -->
   <div class="container-fluid">
 
@@ -23,7 +28,7 @@ include_once("header.php");
   <?php endif; ?>
   <div class="row">
       <div class="col-12 mb-3">
-          <a href="cliente-formulario.php" class="btn btn-primary mr-2">Nuevo</a>
+        <a href="tipoproducto-formulario.php" class="btn btn-primary mr-2">Nuevo</a>  
       </div>
   </div>
   <div class="row">
@@ -33,7 +38,12 @@ include_once("header.php");
             <th>Acciones</th>
         </thead>
         <tbody>
-
+            <?php   foreach($aTipoProductos as $tipoProducto) : ?>
+                <tr> 
+                    <td><?php echo $tipoProducto -> nombre;  ?> </td>
+                    <td> <a href="tipoproducto-formulario.php?id=<?php echo $tipoProducto -> idtipoproducto; ?> " ><i class="fas fa-search"></i></a></td>
+                </tr>
+            <?php endforeach;  ?>
         </tbody>
      </table>
     </div>

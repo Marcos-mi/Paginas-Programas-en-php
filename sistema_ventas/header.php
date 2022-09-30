@@ -53,6 +53,8 @@ if($_POST){
   <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
   <link href="css/estilos.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
+  <link rel="stylesheet" href="css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
 
 </head>
 

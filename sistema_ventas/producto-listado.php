@@ -23,7 +23,7 @@ include_once("header.php");
   <?php endif; ?>
   <div class="row">
       <div class="col-12 mb-3">
-          <a href="cliente-formulario.php" class="btn btn-primary mr-2">Nuevo</a>
+        <a href="producto-formulario.php" class="btn btn-primary mr-2">Nuevo</a>
       </div>
   </div>
   <div class="row">
