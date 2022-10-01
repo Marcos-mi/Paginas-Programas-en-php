@@ -1,7 +1,6 @@
 <?php
 include_once "config.php";
 include_once "entidades/tipo_producto.php";
-include_once "header.php"; 
 $tipoProducto = new tipoProducto();
 if($_POST){
     if(isset($_POST["btnGuardar"])){
@@ -20,8 +19,7 @@ if($_POST){
     } else if (isset($_POST["btnBorrar"])){
         $tipoProducto -> cargarFormulario($_REQUEST);
         $tipoProducto -> eliminar();
-        $msg["texto"] = "Eliminado correctamente";
-        $msg["codigo"] = "alert-danger";
+        header("Location: tipoproducto-listado.php");
     }
 }
 
@@ -29,6 +27,8 @@ if(isset($_GET["id"]) && $_GET["id"] > 0){
     $tipoProducto -> cargarFormulario($_REQUEST);
     $tipoProducto -> obtenerPorId();
 }
+
+include_once "header.php"; 
 ?>
   <!-- Begin Page Content -->
   <div class="container-fluid">
