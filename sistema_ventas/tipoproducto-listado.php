@@ -9,7 +9,6 @@ $tipoProducto = new tipoProducto();
 $aTipoProductos = $tipoProducto ->  obtenerTodos();
 
 
-
 ?>
 
   <!-- Begin Page Content -->

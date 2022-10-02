@@ -1,9 +1,11 @@
 <?php
 include_once "config.php";
-
+include_once "entidades/producto.php";
 include_once("header.php"); 
 
 
+$Producto = new Producto();
+$aProductos = $Producto ->  obtenerTodos();
 
 
 ?>
@@ -36,7 +38,18 @@ include_once("header.php");
             <th>Acciones</th>
         </thead>
         <tbody>
-
+          <?php foreach($aProductos as $Producto):   ?>
+          <tr>
+            <td><?php echo $Producto -> imagen; ?></td>
+            <td><?php echo $Producto -> nombre; ?></td>
+            <td><?php echo $Producto -> cantidad;?></td>
+            <td><?php echo $Producto -> precio;?></td>
+            <td> <a href="producto-formulario.php?id=<?php echo $Producto -> idproducto; ?> " ><i class="fas fa-search"></i></a></td>
+          </tr>
+          <?php  endforeach; ?>
         </tbody>
      </table>
     </div>
+
+
+    
