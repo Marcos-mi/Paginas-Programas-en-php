@@ -30,17 +30,17 @@ include_once("header.php");
       </div>
   </div>
 
-    <label for="txtFechaNac" class="d-block">Fecha y hora</label>
-    <select name="txtDia" id="txtDia" class="d-inline form-control" style="width: 80px">
-        <option value="" selected="" disabled="">DD</option>
-    </select>
-    <select name="txtMes" id="txtMes" class="d-inline form-control" style="width: 80px">
-        <option value="" selected="" disabled="">MM</option>
-    </select>
-    <select name="txtAnio" id="txtAnio"  class="d-inline form-control" style="width: 80px">
-        <option value="" selected="" disabled="">YYYY</option>
-    </select>
-    <input type="time" name="" id="" required="" class="form-control d-inline" style="width: 120px">
+  <label for="txtFechaNac" class="d-block">Fecha y hora:</label>
+                    <select class="form-control d-inline" name="txtDia" id="txtDia" style="width: 80px">
+                        <option selected="" disabled="">DD</option>
+                    </select>
+                    <select class="form-control d-inline" name="txtMes" id="txtMes" style="width: 80px">
+                        <option selected="" disabled="">MM</option>
+                    </select>
+                    <select class="form-control d-inline" name="txtAnio" id="txtAnio" style="width: 100px">
+                        <option selected="" disabled="">YYYY</option>
+                    </select>
+                    <input type="" required="" class="form-control d-inline" style="width: 120px" name="txtHora" id="txtHora" value="">
 
   <div class="row">
       <div class="col-6 form-group">
