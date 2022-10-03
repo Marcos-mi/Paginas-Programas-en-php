@@ -49,16 +49,16 @@ include_once("header.php");
             <th>Acciones</th>
         </thead>
         <tbody>
+          <?php foreach($aVentas as $venta) :  ?>
           <tr>
-            <?php foreach($aVentas as $venta) :  ?>
               <td><?php echo $venta -> fecha;   ?></td>
               <td><?php echo $venta -> cantidad; ?></td>
-              <td><?php echo $producto -> nombre; ?></td>
-              <td><?php echo $cliente -> nombre;  ?></td>
+              <td><a href="producto-formulario.php?id=<?php echo $venta->fk_idproducto; ?>"><?php echo $venta->nombre_producto; ?></a></td>
+              <td><a href="cliente-formulario.php?id=<?php echo $venta->fk_idcliente; ?>"><?php echo $venta->nombre_cliente; ?></a></td>
               <td><?php echo $venta -> total; ?></td>
-              <td> <a href="venta-formulario.php?id=<?php echo $venta -> idtventa; ?> " ><i class="fas fa-search"></i></a></td>
-            <?php endforeach;   ?>
-          </tr>
+                <td> <a href="venta-formulario.php?id=<?php echo $venta -> idventa; ?> " ><i class="fas fa-search"></i></a></td>
+              </tr>
+              <?php endforeach;   ?>
         </tbody>
      </table>
     </div>
