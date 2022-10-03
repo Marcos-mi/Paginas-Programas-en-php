@@ -5,15 +5,15 @@ class Venta
     private $idventa;
     private $fk_idcliente;
     private $fk_idproducto;
-    private $fecha;
     private $cantidad;
     private $precio_unitario;
     private $total;
+    private $fecha;
 
 
     public function __construct()
     {
-        $this->cantidad = 0;
+        $this->cantidad = 0.0;
         $this->preciounitario = 0.0;
         $this->total = 0.0;
     }
@@ -34,13 +34,12 @@ class Venta
         $this->fk_idcliente = isset($request["lstCliente"]) ? $request["lstCliente"] : "";
         $this->fk_idproducto = isset($request["lstProducto"]) ? $request["lstProducto"] : "";
         if (isset($request["txtAnio"]) && isset($request["txtMes"]) && isset($request["txtDia"])) {
-        $this->fecha = $request["txtAnio"] . "-" . $request["txtMes"] . "-" . $request["txtDia"] . " " . $request["txtHora"];
+            $this->fecha = $request["txtAnio"] . "-" . $request["txtMes"] . "-" . $request["txtDia"] . " " . $request["txtHora"];
         }
         $this->cantidad = isset($request["txtCantidad"]) ? $request["txtCantidad"] : 0;
-        $this->precio_unitario = isset($request["txtPrecioUni"]) ? $request["txtPrecioUni"] : 0.0;
+        $this->preciounitario = isset($request["txtPrecioUni"]) ? $request["txtPrecioUni"] : 0.0;
         $this->total = isset($request["txtTotal"]) ? $request["txtTotal"] : 0.0;
-        }
-      
+    }
        
 
     public function insertar()
@@ -48,20 +47,20 @@ class Venta
         //Instancia la clase mysqli con el constructor parametrizado
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
         //Arma la query
-        $sql = "INSERT INTO clientes (
+        $sql = "INSERT INTO ventas (
                     fk_idcliente,
                     fk_idproducto,
-                    fecha,
                     cantidad,
                     precio_unitario,
-                    total
+                    total,
+                    fecha
                 ) VALUES (
                     $this->fk_idcliente,
                     $this->fk_idproducto,
-                    '$this->fecha',
                     $this->cantidad,
                     $this->precio_unitario,
-                    $this->total
+                    $this->total,
+                    '$this->fecha'
                 );";
         // print_r($sql);exit;
         //Ejecuta la query
