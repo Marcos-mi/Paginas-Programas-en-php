@@ -172,13 +172,13 @@ class Venta
 
         $sql = "SELECT
                 A.idventa,
+                A.fk_idcliente,
+                A.fk_idproducto,
                 A.fecha,
                 A.cantidad,
-                A.fk_idcliente,
-                B.nombre AS nombre_cliente,
-                A.fk_idproducto,
-                A.total,
                 A.preciounitario,
+                A.total,
+                B.nombre AS nombre_cliente,
                 C.nombre AS nombre_producto
             FROM ventas A
             INNER JOIN clientes B ON A.fk_idcliente = B.idcliente
@@ -200,9 +200,9 @@ class Venta
                 $entidadAux->fecha = $fila["fecha"];
                 $entidadAux->cantidad = $fila["cantidad"];
                 $entidadAux->preciounitario = $fila["preciounitario"];
+                $entidadAux->total = $fila["total"];
                 $entidadAux->nombre_cliente = $fila["nombre_cliente"];
                 $entidadAux->nombre_producto = $fila["nombre_producto"];
-                $entidadAux->total = $fila["total"];
                 $aResultado[] = $entidadAux;
             }
         }

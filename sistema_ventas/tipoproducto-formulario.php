@@ -16,10 +16,20 @@ if($_POST){
         $msg["texto"] = "Insertado correctamente";
         $msg["codigo"] = "alert-success";
     }
-    } else if (isset($_POST["btnBorrar"])){
-        $tipoProducto -> cargarFormulario($_REQUEST);
-        $tipoProducto -> eliminar();
-        header("Location: tipoproducto-listado.php");
+    } else if (isset($_POST["btnBorrar"])) {
+        $tipoProducto->cargarFormulario($_REQUEST);
+
+        //Busco aquellos productos que tengan este tipo de producto
+        $producto = new Producto();
+        if($producto->obtenerPorTipo($tipoProducto->idtipoproducto)){
+            $msg["texto"] = "No se puede eliminar un tipo de producto con productos asociados.";
+            $msg["codigo"] = "alert-danger";
+        } else {
+        //Sino
+            //Elimino
+            $tipoProducto->eliminar();
+            header("Location: tipoproducto-listado.php");
+        }
     }
 }
 
