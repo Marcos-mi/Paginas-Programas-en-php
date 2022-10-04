@@ -1,9 +1,11 @@
 <?php
 include_once "config.php";
-
+include_once "entidades/usuario.php";
 include_once("header.php"); 
 
 
+$usuarios = new Usuario();
+$aUsuarios  = $usuarios -> obtenerTodos();
 
 
 ?>
@@ -36,7 +38,15 @@ include_once("header.php");
             <th>Acciones</th>
         </thead>
         <tbody>
-
+          <?php foreach($aUsuarios as $usuario) : ?>
+          <tr>
+              <td><?php echo $usuario -> usuario; ?></td>
+              <td><?php echo $usuario -> nombre; ?></td>
+              <td><?php echo $usuario -> apellido; ?></td>
+              <td><?php echo $usuario -> correo; ?></td>
+              <td> <a href="usuario-formulario.php?id=<?php echo $usuario -> idusuario; ?> " ><i class="fas fa-search"></i></a></td>
+          </tr>
+          <?php endforeach; ?>
         </tbody>
      </table>
     </div>

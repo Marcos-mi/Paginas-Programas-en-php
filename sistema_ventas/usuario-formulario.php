@@ -15,9 +15,13 @@ if ($_POST) {
         if (isset($_GET["id"]) && $_GET["id"] > 0) {
             //Actualizo un usuario existente
             $usuario->actualizar();
+            $msg["texto"] = "Actualizado correctamente";
+            $msg["codigo"] = "alert-success";
         } else {
             //Es nuevo
             $usuario->insertar();
+            $msg["texto"] = "Insertado correctamente";
+            $msg["codigo"] = "alert-success";
         }
     } else if (isset($_POST["btnBorrar"])) {
         $usuario->eliminar();
@@ -37,6 +41,15 @@ include_once "header.php";
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Usuario</h1>
+                        <?php if(isset($msg)): ?>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="alert <?php echo $msg["codigo"]; ?>" role="alert">
+                            <?php echo $msg["texto"]; ?>
+                        </div>
+                    </div>
+                </div>
+                <?php endif; ?>
             <div class="row">
                 <div class="col-12 mb-3">
                     <a href="usuario-listado.php" class="btn btn-primary mr-2">Listado</a>

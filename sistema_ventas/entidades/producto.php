@@ -9,10 +9,11 @@ class Producto
     private $precio;
     private $descripcion;
     private $imagen;
+    private $idTipoProducto;
 
     public function __construct()
     {
-        $this->cantidad = 0;
+        $this->cantidad = 0.0;
         $this->precio = 0.0;
     }
 
@@ -127,7 +128,7 @@ class Producto
         return $this;
     }
 
-    public function obtenerPorTipo($idTipoProducto)
+    public function obtenerPorTipo($idproducto)
     {
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
         $sql = "SELECT idproducto,
@@ -138,7 +139,7 @@ class Producto
                                 descripcion,
                                 imagen
                         FROM productos
-                        WHERE fk_idtipoproducto = " . $idTipoProducto;
+                        WHERE idproducto = " . $idproducto;
         if (!$resultado = $mysqli->query($sql)) {
             printf("Error en query: %s\n", $mysqli->error . " " . $sql);
         }
