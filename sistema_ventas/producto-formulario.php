@@ -62,7 +62,6 @@ if ($_POST) {
         }
 
     } else if (isset($_POST["btnBorrar"])) {
-        $producto = new Producto();
         $producto->cargarFormulario($_REQUEST);
         $producto->obtenerPorId();
         if(file_exists("files/$producto->imagen")){
@@ -125,6 +124,7 @@ include_once "header.php";
                                 <option value="<?php echo $tipoProducto->idtipoproducto;?>"><?php echo $tipoProducto->nombre; ?></option>
                             <?php endif; ?>
                         <?php endforeach; ?>
+                        
                     </select>
                 </div>
                 <div class="col-6 form-group">

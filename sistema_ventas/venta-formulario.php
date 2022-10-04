@@ -24,10 +24,9 @@ if($_POST){
     } else if (isset($_POST["btnBorrar"])){
         $venta->cargarFormulario($_REQUEST);
 
-        //Busco aquellos productos que tengan este tipo de producto
-        $venta = new Venta();
-        if($venta->obtenerPorTipo($venta->idventa)){
-            $msg["texto"] = "No se puede eliminar un tipo de producto con productos asociados.";
+        //Busco aquellas ventas que tengan este tipo de venta
+        if($venta->obtenerPorVenta($venta->idventa)){
+            $msg["texto"] = "No se puede eliminar una venta con ventas asociadas.";
             $msg["codigo"] = "alert-danger";
         } else {
         //Sino
@@ -142,15 +141,15 @@ include_once("header.php");
       </div>
         <div class="col-6 form-group">
           <label for="txtPrecioUnitario">Precio unitario</label>
-          <input type="number" placeholder="0" required class="form-control" name="txtPrecioUnitario" id="txtPrecioUnitario" value="<?php echo $venta -> preciounitario; ?>">
+          <input type="number"  required class="form-control" name="txtPrecioUnitario" id="txtPrecioUnitario" value="<?php echo $venta -> precio_unitario; ?>">
       </div>
         <div class="col-6 form-group">
           <label for="txtCantidad">Cantidad</label>
-          <input type="number" placeholder="0" required class="form-control" name="txtCantidad" id="txtCantidad" value=" <?php echo $venta -> cantidad;  ?>">
+          <input type="number"  required class="form-control" name="txtCantidad" id="txtCantidad" value=" <?php echo $venta -> cantidad;  ?>">
       </div>
         <div class="col-6 form-group">
           <label for="txtTotal">Total</label>
-          <input type="number" placeholder="0" required class="form-control" name="txtTotal" id="txtTotal" value="<?php echo $venta -> total;  ?>">
+          <input type="number"  required class="form-control" name="txtTotal" id="txtTotal" value="<?php echo $venta -> total;  ?>">
       </div>
     </div>
    

@@ -37,7 +37,7 @@ class Venta
         if (isset($request["txtAnio"]) && isset($request["txtMes"]) && isset($request["txtDia"])) {
             $this->fecha = $request["txtAnio"] . "-" . $request["txtMes"] . "-" . $request["txtDia"] . " " . $request["txtHora"];
         }
-        $this->cantidad = isset($request["txtCantidad"]) ? $request["txtCantidad"] : 0;
+        $this->cantidad = isset($request["txtCantidad"]) ? $request["txtCantidad"] : 0.0;
         $this->precio_unitario = isset($request["txtPrecioUnitario"]) ? $request["txtPrecioUnitario"] : 0.0;
         $this->total = isset($request["txtTotal"]) ? $request["txtTotal"] : 0.0;
     }
@@ -176,7 +176,7 @@ class Venta
                 A.fk_idproducto,
                 A.fecha,
                 A.cantidad,
-                A.preciounitario,
+                A.precio_unitario,
                 A.total,
                 B.nombre AS nombre_cliente,
                 C.nombre AS nombre_producto
@@ -199,7 +199,7 @@ class Venta
                 $entidadAux->fk_idproducto = $fila["fk_idproducto"];
                 $entidadAux->fecha = $fila["fecha"];
                 $entidadAux->cantidad = $fila["cantidad"];
-                $entidadAux->preciounitario = $fila["preciounitario"];
+                $entidadAux->precio_unitario = $fila["precio_unitario"];
                 $entidadAux->total = $fila["total"];
                 $entidadAux->nombre_cliente = $fila["nombre_cliente"];
                 $entidadAux->nombre_producto = $fila["nombre_producto"];
@@ -208,6 +208,40 @@ class Venta
         }
         $mysqli->close();
         return $aResultado;
+    }
+    public function obtenerPorVenta($idventa)
+    {
+        $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
+        $sql = "SELECT idventa,
+                                fk_idcliente,
+                                fk_idproducto,
+                                fecha,
+                                cantidad,
+                                precio_unitario,
+                                total
+                        FROM ventas
+                        WHERE idventa = " . $idventa;
+        if (!$resultado = $mysqli->query($sql)) {
+            printf("Error en query: %s\n", $mysqli->error . " " . $sql);
+        }
+
+        $aResultado = array();
+        if ($resultado) {
+            //Convierte el resultado en un array asociativo
+            while ($fila = $resultado->fetch_assoc()) {
+                $entidadAux = new Producto();
+                $entidadAux->idproducto = $fila["idventa"];
+                $entidadAux->fk_idproducto = $fila["fk_idproducto"];
+                $entidadAux->fecha = $fila["fecha"];
+                $entidadAux->cantidad = $fila["cantidad"];
+                $entidadAux->precio_unitario = $fila["precio_unitario"];
+                $entidadAux->descripcion = $fila["total"];
+                $aResultado[] = $entidadAux;
+            }
+        }
+        $mysqli->close();
+        return $aResultado;
+
     }
 
 }

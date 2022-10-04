@@ -1,6 +1,7 @@
 <?php
 include_once "config.php";
 include_once "entidades/tipo_producto.php";
+include_once "entidades/producto.php";
 $tipoProducto = new tipoProducto();
 if($_POST){
     if(isset($_POST["btnGuardar"])){
